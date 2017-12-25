@@ -1,5 +1,11 @@
-
-import { Directive, Renderer2, OnInit, ElementRef, HostListener } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  OnInit,
+  Renderer2
+} from '@angular/core';
 
 
 
@@ -8,19 +14,22 @@ import { Directive, Renderer2, OnInit, ElementRef, HostListener } from '@angular
 })
 export class RenderHighlighterDirective implements OnInit {
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 
+  @HostBinding('style.backgroundColor') backgroundColor = 'transparent';
 
+  public ngOnInit(): void {
+    // this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
+  }
 
-    public ngOnInit(): void {
-       // this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
-    }
+  @HostListener('mouseenter') mouseenter(eventData: Event) {
+    // this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
+    this.backgroundColor = 'blue';
+  }
 
-    @HostListener('mouseenter') mouseenter( eventData: Event) {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
-    }
+  @HostListener('mouseleave') mouseout(eventData: Event) {
+    // this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'white');
+    this.backgroundColor = 'transparent';
 
-    @HostListener('mouseleave') mouseout( eventData: Event) {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'white');
-    }
+  }
 }
