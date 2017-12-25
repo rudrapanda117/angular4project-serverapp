@@ -1,3 +1,5 @@
+import { NewAccountComponent } from './new-account/new-account.component';
+import { AccountComponent } from './account/account.component';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +27,9 @@ import { UnlessDirective } from './unless/unless.directive';
     ServerElementComponent,
     BasicHighlightDirective,
     RenderHighlighterDirective,
-    UnlessDirective
+    UnlessDirective,
+    AccountComponent,
+    NewAccountComponent
   ],
   imports: [
     BrowserModule,

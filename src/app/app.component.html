@@ -1,24 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
-      <br>
-      <br>
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let number of numbers">
-          {{number}}
-        </li>
-      </ul>
-      <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
-      </ng-template>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
+      <hr>
+      <app-account
+        *ngFor="let acc of accounts; let i = index"
+        [account]="acc"
+        [id]="i"
+        (statusChanged)="onStatusChanged($event)"></app-account>
     </div>
-
-
   </div>
 </div>
-
-<p *appUnless="onlyOdd">AppUnless</p>
-
-<p appBasicHighlight>Basic highlighter</p>
-<p appRenderHighlighter [defaultColor]="'yellow'" [highlightColor]="'red'">Renderer highlighter</p>
