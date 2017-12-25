@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { IServerData } from './shared/ServerData.interface';
+import {
+  Component
+} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +11,24 @@ import { Component } from '@angular/core';
 export class AppComponent {
   serverElements = [{
     type: 'server',
-    mane: 'TestServer',
+    name: 'TestServer',
     content: 'Just a test!'
   }];
+
+  onServerAdded(serverData: IServerData) {
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
+  }
+
+  onBluePrintAdded(serverData: IServerData) {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
+  }
 
 }
