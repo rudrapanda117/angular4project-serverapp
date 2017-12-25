@@ -4,6 +4,7 @@ import {
     AfterViewChecked,
     AfterViewInit,
     Component,
+    ContentChild,
     DoCheck,
     ElementRef,
     Input,
@@ -44,6 +45,8 @@ export class ServerElementComponent implements OnInit,
 
   @ViewChild('heading') header: ElementRef;
 
+  @ContentChild('contentParagrph') contentParagrph: ElementRef;
+
 
   constructor() {
     console.log('constructor called');
@@ -51,7 +54,8 @@ export class ServerElementComponent implements OnInit,
 
   ngOnInit() {
     console.log('onInit called');
-    console.log('Text Content onInit', this.header.nativeElement.textContent);
+    console.log('Text header onInit', this.header.nativeElement.textContent);
+    console.log('Text contentParagrph onInit', this.contentParagrph.nativeElement.textContent);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -65,6 +69,7 @@ export class ServerElementComponent implements OnInit,
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called');
+    console.log('Text Content ngAfterContentInit', this.contentParagrph.nativeElement.textContent);
   }
 
 
@@ -75,7 +80,7 @@ export class ServerElementComponent implements OnInit,
 
   public ngAfterViewInit(): void {
     console.log('ngAfterViewInit called');
-    console.log('Text Content ngAfterViewInit', this.header.nativeElement.textContent);
+    console.log('Text header ngAfterViewInit', this.header.nativeElement.textContent);
   }
 
   public ngAfterViewChecked(): void {
