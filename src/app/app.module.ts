@@ -12,6 +12,7 @@ import { ServersComponent } from './servers/servers.component';
 import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
+import { RenderHighlighterDirective } from './render-highlighter/render-highlighter.directive';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ServerElementComponent } from './server-element/server-element.componen
     ServersComponent,
     CockpitComponent,
     ServerElementComponent,
-    BasicHighlightDirective
+    BasicHighlightDirective,
+    RenderHighlighterDirective
   ],
   imports: [
     BrowserModule,
