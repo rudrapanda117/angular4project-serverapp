@@ -30,6 +30,7 @@ import {
 import {
   NgModule
 } from '@angular/core';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const appRoutes: Routes = [{
     path: '',
@@ -64,9 +65,14 @@ const appRoutes: Routes = [{
       }
     ]
   },
+  // {
+  //   path: 'not-found',
+  //   component: PageNotFoundComponent
+  // },
   {
     path: 'not-found',
-    component: PageNotFoundComponent
+    component: ErrorPageComponent,
+    data: {message: 'Page not found!'}
   },
   {
     path: '**',

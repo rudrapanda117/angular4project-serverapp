@@ -49,6 +49,7 @@ import {
 } from './page-not-found/page-not-found.component';
 import { AuthGaurd } from './auth-gaurd.service';
 import { CanDeactivateGaurd } from './servers/edit-server/can-deactivate-gaurd.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -65,7 +66,8 @@ import { CanDeactivateGaurd } from './servers/edit-server/can-deactivate-gaurd.s
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
