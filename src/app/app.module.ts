@@ -1,47 +1,33 @@
-import { AccountsService } from './account.service';
-import { LoggingService } from './logging.service';
-import { NewAccountComponent } from './new-account/new-account.component';
-import { AccountComponent } from './account/account.component';
-import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-
-import { ServerComponent } from './server/server.component';
-import { ServersComponent } from './servers/servers.component';
 import { AppComponent } from './app.component';
-import { CockpitComponent } from './cockpit/cockpit.component';
-import { ServerElementComponent } from './server-element/server-element.component';
-import { RenderHighlighterDirective } from './render-highlighter/render-highlighter.directive';
-import { UnlessDirective } from './unless/unless.directive';
-
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { ServersComponent } from './servers/servers.component';
+import { UserComponent } from './users/user/user.component';
+import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { ServerComponent } from './servers/server/server.component';
+import { ServersService } from './servers/servers.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponent,
+    HomeComponent,
+    UsersComponent,
     ServersComponent,
-    CockpitComponent,
-    ServerElementComponent,
-    BasicHighlightDirective,
-    RenderHighlighterDirective,
-    UnlessDirective,
-    AccountComponent,
-    NewAccountComponent
+    UserComponent,
+    EditServerComponent,
+    ServerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [
-    LoggingService,
-    AccountsService
-  ],
+  providers: [ServersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
