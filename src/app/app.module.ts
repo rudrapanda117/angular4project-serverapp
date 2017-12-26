@@ -48,6 +48,7 @@ import {
   PageNotFoundComponent
 } from './page-not-found/page-not-found.component';
 import { AuthGaurd } from './auth-gaurd.service';
+import { CanDeactivateGaurd } from './servers/edit-server/can-deactivate-gaurd.service';
 
 
 
@@ -72,7 +73,7 @@ import { AuthGaurd } from './auth-gaurd.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AuthService, AuthGaurd ],
+  providers: [ServersService, AuthService, AuthGaurd, CanDeactivateGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

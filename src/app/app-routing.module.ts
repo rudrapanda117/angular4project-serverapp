@@ -1,3 +1,4 @@
+import { CanDeactivateGaurd } from './servers/edit-server/can-deactivate-gaurd.service';
 import {
   AuthGaurd
 } from './auth-gaurd.service';
@@ -58,7 +59,8 @@ const appRoutes: Routes = [{
       },
       {
         path: ':id/edit',
-        component: EditServerComponent
+        component: EditServerComponent,
+        canDeactivate: [CanDeactivateGaurd]
       }
     ]
   },
