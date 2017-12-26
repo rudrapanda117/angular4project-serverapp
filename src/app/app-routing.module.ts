@@ -1,3 +1,4 @@
+import { AuthGaurd } from './auth-gaurd.service';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     },
     {
       path: 'servers',
+      canActivate: [AuthGaurd],
       component: ServersComponent,
       children: [{
           path: ':id',

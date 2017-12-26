@@ -1,4 +1,7 @@
-import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import {
+  AppRoutingModule
+} from './app-routing.module';
 import {
   BrowserModule
 } from '@angular/platform-browser';
@@ -11,7 +14,11 @@ import {
 import {
   HttpModule
 } from '@angular/http';
-import { Route, RouterModule, Routes } from '@angular/router';
+import {
+  Route,
+  RouterModule,
+  Routes
+} from '@angular/router';
 
 import {
   AppComponent
@@ -40,6 +47,7 @@ import {
 import {
   PageNotFoundComponent
 } from './page-not-found/page-not-found.component';
+import { AuthGaurd } from './auth-gaurd.service';
 
 
 
@@ -64,7 +72,7 @@ import {
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService, AuthService, AuthGaurd ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
