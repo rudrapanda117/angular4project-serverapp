@@ -10,10 +10,7 @@ import {
 import {
   HttpModule
 } from '@angular/http';
-import {
-  Route,
-  RouterModule
-} from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
 
 import {
   AppComponent
@@ -39,6 +36,10 @@ import {
 import {
   ServersService
 } from './servers/servers.service';
+import {
+  PageNotFoundComponent
+} from './page-not-found/page-not-found.component';
+
 
 
 
@@ -49,18 +50,15 @@ const appRoutes: Routes = [{
   {
     path: 'users',
     component: UsersComponent,
-    children: [
-      {
-        path: ':id/:name',
-        component: UserComponent
-      }
-    ]
+    children: [{
+      path: ':id/:name',
+      component: UserComponent
+    }]
   },
   {
     path: 'servers',
     component: ServersComponent,
-    children: [
-      {
+    children: [{
         path: ':id',
         component: ServerComponent
       },
@@ -70,6 +68,14 @@ const appRoutes: Routes = [{
       }
 
     ]
+  },
+  {
+    path: 'not-found',
+    component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/not-found'
   }
 ];
 
@@ -82,7 +88,8 @@ const appRoutes: Routes = [{
     ServersComponent,
     UserComponent,
     EditServerComponent,
-    ServerComponent
+    ServerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
