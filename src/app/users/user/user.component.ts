@@ -1,18 +1,21 @@
 import { ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit , OnDestroy {
   user: {id: number, name: string};
+  paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe( (response: Params) => {
+    this.paramsSubscription = this.route.paramMap.subscribe( (response: Params) => {
       this.user = {
         id: response.get('id') ,
         name: response.get('name')
@@ -25,4 +28,8 @@ export class UserComponent implements OnInit {
     };
   }
 
+
+    public ngOnDestroy(): void {
+        this.paramsSubscription.unsubscribe();
+    }
 }
