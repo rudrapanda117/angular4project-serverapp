@@ -1,3 +1,5 @@
+import { AccountsService } from './account.service';
+import { LoggingService } from './logging.service';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { AccountComponent } from './account/account.component';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
@@ -36,7 +38,10 @@ import { UnlessDirective } from './unless/unless.directive';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    LoggingService,
+    AccountsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
