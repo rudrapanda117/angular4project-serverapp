@@ -1,3 +1,4 @@
+import { ServerResolver } from './servers/server/server-resolver.service';
 import { AuthService } from './auth.service';
 import {
   AppRoutingModule
@@ -75,7 +76,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AuthService, AuthGaurd, CanDeactivateGaurd],
+  providers: [ServersService, AuthService, AuthGaurd, CanDeactivateGaurd, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

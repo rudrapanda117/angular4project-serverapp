@@ -1,3 +1,4 @@
+import { ServerResolver } from './servers/server/server-resolver.service';
 import { CanDeactivateGaurd } from './servers/edit-server/can-deactivate-gaurd.service';
 import {
   AuthGaurd
@@ -56,7 +57,10 @@ const appRoutes: Routes = [{
     component: ServersComponent,
     children: [{
         path: ':id',
-        component: ServerComponent
+        component: ServerComponent,
+        resolve: {
+          server: ServerResolver
+        }
       },
       {
         path: ':id/edit',
